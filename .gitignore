@@ -1,0 +1,13 @@
+# Compiled Maven & Report outputs
+target/
+
+# Local Allure CLI binaries downloaded by allure-maven
+.allure/
+
+# IntelliJ IDEA local workspace files
+.idea/
+*.iml
+
+# OS junk files
+.DS_Store
+Thumbs.db

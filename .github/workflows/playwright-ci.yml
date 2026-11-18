@@ -29,9 +29,11 @@ jobs:
         run: mvn clean test -Dheadless=true
         continue-on-error: true
 
-      - name: 5. Generate Allure Report via Maven
+      - name: 5. Generate Single-File Allure Report (Works Offline via Double-Click)
         if: always()
-        run: mvn allure:report
+        run: |
+          mvn allure:install
+          .allure/allure-2.29.0/bin/allure generate target/allure-results --clean --single-file -o target/allure-single-report
 
       - name: 6. Upload Test Reports as Downloadable Artifacts
         if: always()
@@ -40,4 +42,4 @@ jobs:
           name: playwright-test-reports
           path: |
             target/cucumber-report.html
-            target/site/allure-maven-plugin/
+            target/allure-single-report/index.html

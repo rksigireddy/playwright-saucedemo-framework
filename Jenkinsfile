@@ -5,12 +5,6 @@ pipeline {
         maven 'Maven-3.9'
     }
 
-    parameters {
-        choice(name: 'BROWSER', choices: ['chromium', 'firefox', 'webkit'], description: 'Select Playwright Browser')
-        choice(name: 'HEADLESS', choices: ['true', 'false'], description: 'Run Headless or Visible Browser?')
-        string(name: 'TAGS', defaultValue: '@ui or @api or @hybrid', description: 'Cucumber Tags to Execute')
-    }
-
     stages {
         stage('1. Checkout GitHub Repo') {
             steps {
